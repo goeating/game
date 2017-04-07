@@ -117,35 +117,54 @@ $(function () {
                 // 身份证上传ajax
                 var data = new FormData();
                 data.append("file", oFile);
-                  $.ajax({
-                      url: '/home/security_id_idimg',
-                      type: 'post',
-                      processData: false,
-                      contentType: false,
-                      data: data,
-                      success: function (data) {
-                          if(data){
-                              $('#prompt-id').hide();
-                              $.toast("身份证上传成功！", 1000);
-                          }else{
+                $.ajax({
+                    url: '/home/security_id_idimg',
+                    type: 'post',
+                    processData: false,
+                    contentType: false,
+                    data: data,
+                    success: function (data) {
+                        if (data) {
+                            $('#prompt-id').hide();
+                            $.toast("身份证上传成功！", 1000);
+                        } else {
                             $('#prompt-id').show();
-                          }
-                      }
-            }); 
+                        }
+                    }
+                });
             }
 
         });
     };
     var id = new idUpload($('#id_upload'), $('#id-img'), $('.id-upload-box .item-media'));
 
-    // 修改身份证
+    // 修改身份证号码
     $('#security_id_submit').on('click', function () {
         var Reg = /\d{17}[\d|x]|\d{15}/;
+        
         if ($('#ID').val() == '' || !Reg.test($('#ID').val()) || $('#name').val() == '' || $('#name').val().length < 2) {
             $('#id-prompt').show();
+            
         } else {
+            
             $('#id-prompt').hide();
-            // $.post();
+            $.ajax({
+                url: '/home/Security_Id',
+                type: 'post',
+                data: {
+                    'idcard': $("#ID").val(),
+                    'name': $("#name").val(),
+                },
+                success: function (msg) {
+                    if (msg) {
+                        $('#prompt-id').hide();
+                        $.toast("身份证上传成功！", 1000);
+                        location.href = "/home/Security";
+                    } else {
+                        $('#prompt-id').show();
+                    }
+                }
+            });
         }
     });
 
@@ -165,11 +184,15 @@ $(function () {
                 success: function (msg) {
                     if (msg) {
                         $.toast("绑定成功", 1000);
+                        location.href = "/home/Security";
                     }
                 }
             });
         }
     });
+
+
+
 
 
 
