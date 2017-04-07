@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>个人中心</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="dist/font/iconfont.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current" id="personal-center">
+        <header class="bar bar-nav bar-light">
+            <h1 class="title">个人中心</h1>
+        </header>
+        <div class="content native-scroll">
+            <div class="content-inner">
+                <div class="center-bg">
+                    <!--个人信息 start-->
+                    <div class="center-header">
+                        <div class="center-box">
+                            <img class="center-head" src="dist/img/logo.png" alt="">
+                        </div>
+                        <div class="center-info">
+                            <div class="center-info-one">
+                                <span>sdsds</span>
+                                <span>UID:123813232</span>
+                            </div>
+                            <div>普通玩家</div>
+                        </div>
+                    </div>
+                    <!--个人信息 end-->
+                    <!--红包start-->
+                    <div class="center-red-box">
+                        <div class="center-red">
+                            <p>500000</p>
+                            <p>已领红包</p>
+                        </div>
+                        <div class="center-red">
+                            <p>500000</p>
+                            <p>过期红包</p>
+                        </div>
+                        <div class="center-red">
+                            <p>500000</p>
+                            <p>今日红包</p>
+                        </div>
+                        <div class="center-red">
+                            <p>500000</p>
+                            <p>昨日红包</p>
+                        </div>
+                    </div>
+                    <!--红包end-->
+                </div>
+                <!--任务start-->
+                <div class="row no-gutter center-task">
+                    <div class="col-75 center-tasks">
+                        <p>
+                            昨日完成任务
+                            <span>1/5</span>
+                        </p>
+                        <p>
+                            今日完成任务
+                            <span>1/5</span>
+                        </p>
+                    </div>
+                    <div class="col-25 center-task-red">
+                        <button type="button" class="button button-fill button-danger">领取红包</button>
+                    </div>
+                </div>
+                <!--任务end-->
+                <!--列表start-->
+                <div class="list-block center-list">
+                    <ul>
+                        <li>
+                            <a href="/center/info" class="item-link item-content">
+                                <div class="item-media">
+                                    <i class="icon iconfont icon-gerenxinxi center-gerenxinxi"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">个人信息</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/center/red" class="item-link item-content">
+                                <div class="item-media">
+                                    <i class="icon iconfont icon-hongbao1 center-hongbao1"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">我的红包</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/center/contacts" class="item-link item-content">
+                                <div class="item-media">
+                                    <i class="icon iconfont icon-renmai center-renmai"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">我的人脉</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/center/recommender" class="item-link item-content">
+                                <div class="item-media">
+                                    <i class="icon iconfont icon-tuijianren center-tuijianren"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">我的推荐人</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/center/extension" class="item-link item-content">
+                                <div class="item-media">
+                                    <i class="icon iconfont icon-zhinengtuiguang center-zhinengtuiguang"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">我的推广</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/center/security" class="item-link item-content">
+                                <div class="item-media">
+                                    <i class="icon iconfont icon-anquan center-anquan"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">安全中心</div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--<li>-->
+                            <!--<a href="/center/recommender-bind" class="item-link item-content">-->
+                                <!--<div class="item-media">-->
+                                    <!--<i class="icon iconfont icon-peizhi center-peizhi success"></i>-->
+                                <!--</div>-->
+                                <!--<div class="item-inner">-->
+                                    <!--<div class="item-title">个人设置</div>-->
+                                <!--</div>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+                <!--列表end-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="dist/js/main.js"></script>
+</body>
+</html>

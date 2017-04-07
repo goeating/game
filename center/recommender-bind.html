@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>绑定推荐人</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="../dist/font/iconfont.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current" id="recommender-bind">
+        <header class="bar bar-nav bar-light">
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+            </a>
+            <h1 class='title'>绑定推荐人</h1>
+        </header>
+        <div class="content native-scroll">
+            <div class="content-inner">
+
+                <div class="content-block-title recommender-bind-title">您可以在此输入您好友的推荐码</div>
+                <div class="list-block recommender-bind-code">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">输入推荐码</div>
+                                    <div class="item-input">
+                                        <input type="number">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="recommender-bind-prompt">
+                    <p class="prompt-text">该推荐人不存在，请核对</p>
+                </div>
+                <div class="content-block recommender-bind-btn">
+                    <div class="row">
+                        <div class="col-100"><a href="#" class="button button-big button-fill button-success">绑定</a></div>
+                    </div>
+                </div>
+                <!--对方信息 start-->
+                <div id="other-information" class="none">
+                    <div class="content-block-title recommender-bind-other">对方信息</div>
+                    <div class="recommender-box recommender-bind-position">
+                        <img src="../dist/img/tou.jpg">
+                        <div class="recommender-info">
+                            <p>昵称：xxxx</p>
+                            <p>等级：普通玩家</p>
+                        </div>
+                    </div>
+                </div>
+                <!--对方信息 end-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="../dist/js/knockout-3.4.2.js"></script>
+
+<script>
+
+    var ViewModel=function(){
+        this.show=ko.observable(true);
+        this.input=ko.observable();
+    };
+
+    var vm=new ViewModel();
+
+    ko.applyBindings(vm);
+</script>
+<script src="../dist/js/main.js"></script>
+
+</body>
+</html>
