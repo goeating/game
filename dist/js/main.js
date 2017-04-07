@@ -34,16 +34,44 @@ $(function () {
     });
 
     //上传头像
-    $(document).on('pageInit','#info-head',function () {
+    // $(document).on('pageInit','#info-head',function () {
+    //     var oFReader = new FileReader();
+    //     var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+    //     oFReader.onload = function (oFREvent) {
+    //         // ajax上传
+    //         // var formdata = new FormData;
+    //         // $.post();
+    //         $('#upload-img').attr('src',oFREvent.target.result);
+    //     };
+    //     $('#upload').on('change',function () {
+    //         if(this.files.length === 0){
+    //             return;
+    //         }
+    //         var oFile = this.files[0];
+    //         if(!rFilter.test(oFile.type)){
+    //             $.toast("请选择图片！",1000);
+    //             return;
+    //         }
+    //         oFReader.readAsDataURL(oFile);
+    //     });
+    // });
+
+    var headUpload = function (file,img) {
+        this.file = file;
+        this.img = img;
+        this.upload();
+    };
+    headUpload.prototype.upload = function () {
         var oFReader = new FileReader();
         var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+        var that = this;
         oFReader.onload = function (oFREvent) {
             // ajax上传
             // var formdata = new FormData;
             // $.post();
-            $('#upload-img').attr('src',oFREvent.target.result);
+            that.img.attr('src',oFREvent.target.result);
         };
-        $('#upload').on('change',function () {
+        this.file.on('change',function () {
             if(this.files.length === 0){
                 return;
             }
@@ -54,7 +82,9 @@ $(function () {
             }
             oFReader.readAsDataURL(oFile);
         });
-    });
+    };
+    var head = new headUpload($('#upload'),$('#upload-img'));
+
     //生日日历
     $("#info-birthday").calendar({
         value: ['2017-01-01'],
@@ -81,29 +111,114 @@ $(function () {
     });
 
     //上传身份证
-    $(document).on('pageInit','#security-id',function () {
+    // $(document).on('pageInit','#security-id',function () {
+    //     var oFReader = new FileReader();
+    //     var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+    //     oFReader.onload = function (oFREvent) {
+    //         // ajax上传
+    //         // var formdata = new FormData;
+    //         // $.post();
+    //         $('#id-img').attr('src',oFREvent.target.result);
+    //         $('.id-upload-box .item-media').show();
+    //     };
+    //     $('#id-upload').on('change',function () {
+    //         if(this.files.length === 0){
+    //             return;
+    //         }
+    //         var oFile = this.files[0];
+    //         if(!rFilter.test(oFile.type)){
+    //             $.toast("请选择图片！",1000);
+    //             return;
+    //         }
+    //         oFReader.readAsDataURL(oFile);
+    //     });
+    // });
+
+
+    var idUpload = function (file,img,imgBox) {
+        this.file = file;
+        this.img = img;
+        this.imgBox = imgBox;
+        this.upload();
+    };
+    idUpload.prototype.upload = function () {
         var oFReader = new FileReader();
         var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+        var that = this;
         oFReader.onload = function (oFREvent) {
             // ajax上传
-            // var formdata = new FormData;
+            // var formdata = new FormData();
             // $.post();
-            $('#id-img').attr('src',oFREvent.target.result);
-            $('.id-upload-box .item-media').show();
+            // console.log(oFREvent.target.result);
+            //上传失败 $('#photo-prompt').show();
+            that.img.attr('src',oFREvent.target.result);
+            that.imgBox.show();
         };
-        $('#id-upload').on('change',function () {
+        this.file.on('change',function () {
             if(this.files.length === 0){
                 return;
             }
             var oFile = this.files[0];
+            // console.log(oFile);
             if(!rFilter.test(oFile.type)){
                 $.toast("请选择图片！",1000);
                 return;
             }
+            console.log(this.files[0]);
             oFReader.readAsDataURL(oFile);
         });
+    };
+    var id = new idUpload($('#id-upload'),$('#id-img'),$('.id-upload-box .item-media'));
+
+    // 修改身份证
+    $('#security_id_submit').on('click',function () {
+        var Reg = /\d{17}[\d|x]|\d{15}/;
+        if($('#ID').val()==''||!Reg.test($('#ID').val())||$('#name').val()==''||$('#name').val().length<2){
+            $('#id-prompt').show();
+        }else{
+            $('#id-prompt').hide();
+            // $.post();
+        }
     });
 
- 
-    $.init()
+    //更改邮箱
+    $("#security_email_submit").on('click', function () {
+        var Reg = /\w+((-w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+/;
+        if($('#email').val()==''||!Reg.test($('#email').val())){
+            $('#email-prompt').show();
+        }else{
+            $('#email-prompt').hide();
+            $.ajax({
+                url: '/Home/Security_Email',
+                type: 'post',
+                data: {
+                    'email': $("#security_email_text").val()
+                },
+                success: function (msg) {
+                    if (msg) {
+                        $.toast("绑定成功", 1000);
+                    }
+                }
+            });
+        }
+    });
+
+
+
+    //商品支付按钮sellProduct
+    $("#sellProduct_pay").on('click', function () {
+        $.ajax({
+            url: '/Product/SellOrder',
+            type: 'post',
+            data: {
+                'ProductPrice': $('.game-radio[name="card"]:checked').val()
+            },
+            success: function (msg) {
+                if (msg) {
+                    $.toast("支付成功", 1000);
+                };
+            }
+        });
+    });
+    $.init();
 });
