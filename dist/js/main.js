@@ -1,33 +1,33 @@
 $(function () {
     //游戏充值 选择后金额变化
-    $('.game-radio').on('change',function () {
+    $('.game-radio').on('change', function () {
         $('#money').text($('.game-radio[name="card"]:checked').val());
     });
     //注册
-    $('#code-btn').on('click',function () {
+    $('#code-btn').on('click', function () {
         var Reg = /(13|14|15|18)[0-9]{9}/;
         var index = 60;
-        var timeout=function () {
-            if(index==0){
+        var timeout = function () {
+            if (index == 0) {
                 clearTimeout();
-                $('#code-btn').removeClass('disabled').addClass('button-dark').prop('disabled',false).text("获取验证码");
-            }else{
+                $('#code-btn').removeClass('disabled').addClass('button-dark').prop('disabled', false).text("获取验证码");
+            } else {
                 setTimeout(function () {
                     index--;
-                    $('#code-btn').text(index+"秒后重试");
+                    $('#code-btn').text(index + "秒后重试");
                     timeout();
-                },1000)
+                }, 1000)
             }
         };
-        if($('#phone').val()==""||!Reg.test($('#phone').val())){
-            $.toast("请认真填写手机号码！",1000);
-        }else{
-            $('#code-btn').removeClass('button-dark').addClass('disabled').prop('disabled',true);
+        if ($('#phone').val() == "" || !Reg.test($('#phone').val())) {
+            $.toast("请认真填写手机号码！", 1000);
+        } else {
+            $('#code-btn').removeClass('button-dark').addClass('disabled').prop('disabled', true);
             timeout();
             //发送手机号
-            $.post('',{
+            $.post('', {
                 // $('#phone').val()
-            },function (res) {
+            }, function (res) {
 
             });
         }
@@ -56,7 +56,7 @@ $(function () {
     //     });
     // });
 
-    var headUpload = function (file,img) {
+    var headUpload = function (file, img) {
         this.file = file;
         this.img = img;
         this.upload();
@@ -69,21 +69,21 @@ $(function () {
             // ajax上传
             // var formdata = new FormData;
             // $.post();
-            that.img.attr('src',oFREvent.target.result);
+            that.img.attr('src', oFREvent.target.result);
         };
-        this.file.on('change',function () {
-            if(this.files.length === 0){
+        this.file.on('change', function () {
+            if (this.files.length === 0) {
                 return;
             }
             var oFile = this.files[0];
-            if(!rFilter.test(oFile.type)){
-                $.toast("请选择图片！",1000);
+            if (!rFilter.test(oFile.type)) {
+                $.toast("请选择图片！", 1000);
                 return;
             }
             oFReader.readAsDataURL(oFile);
         });
     };
-    var head = new headUpload($('#upload'),$('#upload-img'));
+    var head = new headUpload($('#upload'), $('#upload-img'));
 
     //生日日历
     $("#info-birthday").calendar({
@@ -135,7 +135,7 @@ $(function () {
     // });
 
 
-    var idUpload = function (file,img,imgBox) {
+    var idUpload = function (file, img, imgBox) {
         this.file = file;
         this.img = img;
         this.imgBox = imgBox;
@@ -147,35 +147,88 @@ $(function () {
         var that = this;
         oFReader.onload = function (oFREvent) {
             // ajax上传
-            // var formdata = new FormData();
-            // $.post();
-            // console.log(oFREvent.target.result);
-            //上传失败 $('#photo-prompt').show();
-            that.img.attr('src',oFREvent.target.result);
+            var data = new FormData(oFREvent.target.result);
+            data.append('id_upload',oFREvent.target.result);
+
+            //$.ajax({
+            //    url: '/home/security_id_idimg',
+            //    type: 'POST',
+            //    data: data,
+            //    xhr: function () { return $.ajaxSettings.xhr(); },
+            //    success: function () { },
+            //    //cache: false,
+            //    processData: false
+            //}); 
+
+
+            //var xmlhttp = new XMLHttpRequest();
+            //xmlhttp.open("POST", "/home/security_id_idimg", true);
+            //xmlhttp.setRequestHeader("X-XSRF-TOKEN", $.fn.cookie("XSRF-TOKEN"));
+            //xmlhttp.send($("#id-upload").files);
+            //xmlhttp.onreadystatechange = function () {
+            //}
+
+
+           // 上传失败 $('#photo-prompt').show();
+            that.img.attr('src', oFREvent.target.result);
             that.imgBox.show();
         };
-        this.file.on('change',function () {
-            if(this.files.length === 0){
+        this.file.on('change', function () {
+            if (this.files.length === 0) {
                 return;
             }
             var oFile = this.files[0];
-            // console.log(oFile);
-            if(!rFilter.test(oFile.type)){
-                $.toast("请选择图片！",1000);
+            if (!rFilter.test(oFile.type)) {
+                $.toast("请选择图片！", 1000);
                 return;
             }
-            console.log(this.files[0]);
-            oFReader.readAsDataURL(oFile);
+            else {
+                oFReader.readAsDataURL(oFile);
+
+                var data = new FormData();
+
+                data.append("file", oFile);
+                  $.ajax({
+                      url: '/home/security_id_idimg',
+                      type: 'post',
+                      processData: false,
+                      contentType: false,
+                      data: data,
+                      success: function (data) {
+                          $('#result').text(data)
+                      }
+            }); 
+            }
+
         });
     };
-    var id = new idUpload($('#id-upload'),$('#id-img'),$('.id-upload-box .item-media'));
+
+    //$('#id_upload_form').on('submit', function (e) {
+    //    e.preventDefault();
+    //    var form = e.target;
+    //    var data = new FormData(form);
+    //    $.ajax({
+    //                  url: '/home/security_id_idimg',
+    //                  method: 'post',
+    //                  processData: false,
+    //                  contentType: false,
+    //                  data: data,
+    //                  success: function (data) {
+    //                      $('#result').text(data)
+    //                  }
+    //        }); 
+
+    //    return false;
+    //})
+
+    var id = new idUpload($('#id_upload'), $('#id-img'), $('.id-upload-box .item-media'));
 
     // 修改身份证
-    $('#security_id_submit').on('click',function () {
+    $('#security_id_submit').on('click', function () {
         var Reg = /\d{17}[\d|x]|\d{15}/;
-        if($('#ID').val()==''||!Reg.test($('#ID').val())||$('#name').val()==''||$('#name').val().length<2){
+        if ($('#ID').val() == '' || !Reg.test($('#ID').val()) || $('#name').val() == '' || $('#name').val().length < 2) {
             $('#id-prompt').show();
-        }else{
+        } else {
             $('#id-prompt').hide();
             // $.post();
         }
@@ -184,9 +237,9 @@ $(function () {
     //更改邮箱
     $("#security_email_submit").on('click', function () {
         var Reg = /\w+((-w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+/;
-        if($('#email').val()==''||!Reg.test($('#email').val())){
+        if ($('#security_email_text').val() == '' || !Reg.test($('#security_email_text').val())) {
             $('#email-prompt').show();
-        }else{
+        } else {
             $('#email-prompt').hide();
             $.ajax({
                 url: '/Home/Security_Email',
@@ -222,3 +275,7 @@ $(function () {
     });
     $.init();
 });
+
+
+
+
