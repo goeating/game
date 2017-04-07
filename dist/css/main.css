@@ -398,7 +398,7 @@
   padding-bottom: 0.4rem;
   position: relative;
   overflow: hidden; }
-  .id-upload-btn #id-upload {
+  .id-upload-btn #id_upload {
     position: absolute;
     top: 0;
     bottom: 0;

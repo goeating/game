@@ -34,28 +34,6 @@ $(function () {
     });
 
     //上传头像
-    // $(document).on('pageInit','#info-head',function () {
-    //     var oFReader = new FileReader();
-    //     var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
-    //     oFReader.onload = function (oFREvent) {
-    //         // ajax上传
-    //         // var formdata = new FormData;
-    //         // $.post();
-    //         $('#upload-img').attr('src',oFREvent.target.result);
-    //     };
-    //     $('#upload').on('change',function () {
-    //         if(this.files.length === 0){
-    //             return;
-    //         }
-    //         var oFile = this.files[0];
-    //         if(!rFilter.test(oFile.type)){
-    //             $.toast("请选择图片！",1000);
-    //             return;
-    //         }
-    //         oFReader.readAsDataURL(oFile);
-    //     });
-    // });
-
     var headUpload = function (file, img) {
         this.file = file;
         this.img = img;
@@ -111,30 +89,6 @@ $(function () {
     });
 
     //上传身份证
-    // $(document).on('pageInit','#security-id',function () {
-    //     var oFReader = new FileReader();
-    //     var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
-    //     oFReader.onload = function (oFREvent) {
-    //         // ajax上传
-    //         // var formdata = new FormData;
-    //         // $.post();
-    //         $('#id-img').attr('src',oFREvent.target.result);
-    //         $('.id-upload-box .item-media').show();
-    //     };
-    //     $('#id-upload').on('change',function () {
-    //         if(this.files.length === 0){
-    //             return;
-    //         }
-    //         var oFile = this.files[0];
-    //         if(!rFilter.test(oFile.type)){
-    //             $.toast("请选择图片！",1000);
-    //             return;
-    //         }
-    //         oFReader.readAsDataURL(oFile);
-    //     });
-    // });
-
-
     var idUpload = function (file, img, imgBox) {
         this.file = file;
         this.img = img;
@@ -146,30 +100,6 @@ $(function () {
         var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
         var that = this;
         oFReader.onload = function (oFREvent) {
-            // ajax上传
-            var data = new FormData(oFREvent.target.result);
-            data.append('id_upload',oFREvent.target.result);
-
-            //$.ajax({
-            //    url: '/home/security_id_idimg',
-            //    type: 'POST',
-            //    data: data,
-            //    xhr: function () { return $.ajaxSettings.xhr(); },
-            //    success: function () { },
-            //    //cache: false,
-            //    processData: false
-            //}); 
-
-
-            //var xmlhttp = new XMLHttpRequest();
-            //xmlhttp.open("POST", "/home/security_id_idimg", true);
-            //xmlhttp.setRequestHeader("X-XSRF-TOKEN", $.fn.cookie("XSRF-TOKEN"));
-            //xmlhttp.send($("#id-upload").files);
-            //xmlhttp.onreadystatechange = function () {
-            //}
-
-
-           // 上传失败 $('#photo-prompt').show();
             that.img.attr('src', oFREvent.target.result);
             that.imgBox.show();
         };
@@ -184,9 +114,8 @@ $(function () {
             }
             else {
                 oFReader.readAsDataURL(oFile);
-
+                // 身份证上传ajax
                 var data = new FormData();
-
                 data.append("file", oFile);
                   $.ajax({
                       url: '/home/security_id_idimg',
@@ -195,32 +124,18 @@ $(function () {
                       contentType: false,
                       data: data,
                       success: function (data) {
-                          $('#result').text(data)
+                          if(data){
+                              $('#prompt-id').hide();
+                              $.toast("身份证上传成功！", 1000);
+                          }else{
+                            $('#prompt-id').show();
+                          }
                       }
             }); 
             }
 
         });
     };
-
-    //$('#id_upload_form').on('submit', function (e) {
-    //    e.preventDefault();
-    //    var form = e.target;
-    //    var data = new FormData(form);
-    //    $.ajax({
-    //                  url: '/home/security_id_idimg',
-    //                  method: 'post',
-    //                  processData: false,
-    //                  contentType: false,
-    //                  data: data,
-    //                  success: function (data) {
-    //                      $('#result').text(data)
-    //                  }
-    //        }); 
-
-    //    return false;
-    //})
-
     var id = new idUpload($('#id_upload'), $('#id-img'), $('.id-upload-box .item-media'));
 
     // 修改身份证
@@ -273,7 +188,6 @@ $(function () {
             }
         });
     });
-    $.init();
 });
 
 
