@@ -65,9 +65,8 @@ $(function () {
 
     //生日日历
     $("#info-birthday").calendar({
-        value: ['2017-01-01'],
-        onChange: function () {
-
+        onChange: function (p, values, displayValues) {
+            console.log(values[0]);
         }
     });
 
