@@ -26,7 +26,7 @@
             </button>
             <h1 class="title">设置身份证</h1>
         </header>
-        <div class="content native-scroll">
+        <<div class="content native-scroll">
     <div class="content-inner">
 
         <div class="list-block top-5">
@@ -37,7 +37,7 @@
                         <div class="item-inner">
                             <div class="item-title label">身份证号码：</div>
                             <div class="item-input">
-                                <input type="number">
+                                <input id="ID" type="text">
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <div class="item-inner">
                             <div class="item-title label">姓名：</div>
                             <div class="item-input">
-                                <input type="text">
+                                <input type="text" id="name">
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                                     </div>
 
                                     <div class="id-upload-btn">
-                                        <!-- @Html.AntiForgeryToken() -->
+                                        @Html.AntiForgeryToken()
                                         <input type="file" id="id_upload" name="id_upload">
                                         <button type="submit" class="id-btn">
                                             <i class="icon iconfont icon-plus-with-border"></i>
@@ -81,9 +81,7 @@
                     </li>
                 </ul>
             </div>
-        <p class="prompt-text" id="prompt-id">身份证上传失败，请稍后重试</p>
-    </div>
-</div>
+        <p class="prompt-text none">身份证上传失败，请稍后重试</p>
     </div>
 </div>
 
