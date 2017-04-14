@@ -58,16 +58,47 @@ $(function () {
                 $.toast("请选择图片！", 1000);
                 return;
             }
-            oFReader.readAsDataURL(oFile);
+            else {
+                oFReader.readAsDataURL(oFile);
+                var data = new FormData();
+                data.append("file", oFile);
+                $.ajax({
+                    url: '/home/PersonalInfo_Avatar_Upload',
+                    type: 'post',
+                    processData: false,
+                    contentType: false,
+                    data: data,
+                    success: function (data) {
+                        if (data) {
+                            $('#prompt-id').hide();
+                            $.toast("头像上传成功！", 1000);
+                        } else {
+                            $('#prompt-id').show();
+                            $.toast("头像上传失败！",1000);
+                        }
+                    }
+                });
+            }
         });
     };
     var head = new headUpload($('#upload'), $('#upload-img'));
 
     //生日日历
     $("#info-birthday").calendar({
-        value: ['2017-01-01'],
-        onChange: function () {
-
+        onChange: function (p, val, displayvalue) {
+            $.ajax({
+                url: '/Home/PersonalInfo_Birthday',
+                type: 'post',
+                data: { 'birthday': displayvalue },
+                success: function (data) {
+                    if (data) {
+                        $.toast("生日修改成功！", 1000);
+                    }
+                    else {
+                        $.toast("生日修改失败！",1000);
+                    }
+                }
+            })
         }
     });
 
@@ -84,7 +115,19 @@ $(function () {
             }
         ],
         onClose: function () {
-            console.log($("#info-sex").val());
+            $.ajax({
+                url: '/Home/PersonalInfo_Sex',
+                type: 'post',
+                data: { 'sex': $("#info-sex").val() },
+                success: function (data) {
+                    if (data) {
+                        $.toast("性别修改成功！", 1000);
+                    }
+                    else {
+                        $.toast("性别修改失败！",1000);
+                    }
+                }
+            })
         }
     });
 
@@ -118,7 +161,7 @@ $(function () {
                 var data = new FormData();
                 data.append("file", oFile);
                 $.ajax({
-                    url: '/home/security_id_idimg',
+                    url: '/Account/security_id_idimg',
                     type: 'post',
                     processData: false,
                     contentType: false,
@@ -129,6 +172,7 @@ $(function () {
                             $.toast("身份证上传成功！", 1000);
                         } else {
                             $('#prompt-id').show();
+                            $.toast("身份证上传失败！", 1000);
                         }
                     }
                 });
@@ -149,7 +193,7 @@ $(function () {
             
             $('#id-prompt').hide();
             $.ajax({
-                url: '/home/Security_Id',
+                url: '/Account/Security_Id',
                 type: 'post',
                 data: {
                     'idcard': $("#ID").val(),
@@ -159,9 +203,10 @@ $(function () {
                     if (msg) {
                         $('#prompt-id').hide();
                         $.toast("身份证上传成功！", 1000);
-                        location.href = "/home/Security";
+                        location.href = "/Account/Security";
                     } else {
                         $('#prompt-id').show();
+                        $.toast("身份证上传失败！",1000);
                     }
                 }
             });
@@ -176,7 +221,7 @@ $(function () {
         } else {
             $('#email-prompt').hide();
             $.ajax({
-                url: '/Home/Security_Email',
+                url: '/Account/Security_Email',
                 type: 'post',
                 data: {
                     'email': $("#security_email_text").val()
@@ -184,7 +229,10 @@ $(function () {
                 success: function (msg) {
                     if (msg) {
                         $.toast("绑定成功", 1000);
-                        location.href = "/home/Security";
+                        location.href = "/Account/Security";
+                    }
+                    else {
+                        $.toast("绑定失败！",1000);
                     }
                 }
             });
@@ -199,7 +247,7 @@ $(function () {
     //商品支付按钮sellProduct
     $("#sellProduct_pay").on('click', function () {
         $.ajax({
-            url: '/Product/SellOrder',
+            url: '/Product/SellOrderting',
             type: 'post',
             data: {
                 'ProductPrice': $('.game-radio[name="card"]:checked').val()
@@ -207,12 +255,14 @@ $(function () {
             success: function (msg) {
                 if (msg) {
                     $.toast("支付成功", 1000);
+                }
+                else {
+                    $.toast("支付失败！",1000);
                 };
             }
         });
     });
 });
-
 
 
 
