@@ -13,6 +13,9 @@
   margin-top: 1rem;
   margin-bottom: 0; }
 
+#none {
+  display: none; }
+
 .none {
   display: none; }
 
@@ -170,18 +173,34 @@
 
 .center-task {
   background: #fff;
-  padding: 20px;
-  display: flex;
-  align-items: center; }
-  .center-task .center-tasks p {
+  padding-bottom: 0.5rem; }
+  .center-task .center-task-title {
+    font-size: 14px;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #eee; }
+    .center-task .center-task-title .center-fuli {
+      color: #df3d3e;
+      margin-right: 0.25rem; }
+  .center-task .center-task-text {
+    padding-top: 0.5rem; }
+  .center-task p {
     margin: 0;
     font-size: 12px; }
-    .center-task .center-tasks p span {
-      margin-left: 1rem; }
-  .center-task .center-task-red {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 0.25rem; }
+  .center-task .center-task-ok {
+    background: #43cd6e;
+    display: inline-block;
+    color: #fff;
+    padding: 0.05rem 0.25rem;
+    border-radius: 0.15rem; }
+  .center-task .center-task-no {
+    background: #ea4a36;
+    display: inline-block;
+    color: #fff;
+    padding: 0.05rem 0.25rem;
+    border-radius: 0.2rem; }
+  .center-task .center-task-situation {
+    display: inline-block;
+    padding: 0.05rem 0.25rem; }
 
 .center-list {
   margin-top: 0.5rem;

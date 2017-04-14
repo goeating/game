@@ -18,7 +18,7 @@
 <div class="page-group">
     <div class="page page-current" id="personal-center">
         <header class="bar bar-nav bar-light">
-            <h1 class="title">个人中心</h1>
+            <h1 class="title">我的享玩</h1>
         </header>
         <div class="content native-scroll">
             <div class="content-inner">
@@ -45,33 +45,47 @@
                         </div>
                         <div class="center-red">
                             <p>500000</p>
+                            <p>红包余额</p>
+                        </div>
+                        <div class="center-red">
+                            <p>500000</p>
                             <p>过期红包</p>
                         </div>
                         <div class="center-red">
                             <p>500000</p>
-                            <p>今日红包</p>
-                        </div>
-                        <div class="center-red">
-                            <p>500000</p>
-                            <p>昨日红包</p>
+                            <p>弃权红包</p>
                         </div>
                     </div>
                     <!--红包end-->
                 </div>
                 <!--任务start-->
+                <!--<div class="row no-gutter center-task">-->
+                    <!--<div class="col-75 center-tasks">-->
+                        <!--<p>-->
+                            <!--昨日完成任务-->
+                            <!--<span>1/5</span>-->
+                        <!--</p>-->
+                        <!--<p>-->
+                            <!--今日完成任务-->
+                            <!--<span>1/5</span>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="col-25 center-task-red">-->
+                        <!--<button type="button" class="button button-fill button-danger">领取红包</button>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="row no-gutter center-task">
-                    <div class="col-75 center-tasks">
-                        <p>
-                            昨日完成任务
-                            <span>1/5</span>
-                        </p>
-                        <p>
-                            今日完成任务
-                            <span>1/5</span>
-                        </p>
+                    <div class="col-100 text-center center-task-title">
+                        <i class="icon iconfont icon-fuli center-fuli"></i>福利进度
                     </div>
-                    <div class="col-25 center-task-red">
-                        <button type="button" class="button button-fill button-danger">领取红包</button>
+                    <div class="col-50 text-center">
+                        <p class="center-task-text">昨日任务</p>
+                        <p class="center-task-ok">已完成</p>
+                        <!--<p class="center-task-no">未完成</p>-->
+                    </div>
+                    <div class="col-50 text-center">
+                        <p class="center-task-text">今日任务</p>
+                        <p class="center-task-situation">1/5</p>
                     </div>
                 </div>
                 <!--任务end-->
@@ -79,7 +93,7 @@
                 <div class="list-block center-list">
                     <ul>
                         <li>
-                            <a href="/center/info" class="item-link item-content">
+                            <a href="./center/info.html" class="item-link item-content">
                                 <div class="item-media">
                                     <i class="icon iconfont icon-gerenxinxi center-gerenxinxi"></i>
                                 </div>
@@ -89,62 +103,52 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/center/red" class="item-link item-content">
+                            <a href="./center/red.html" class="item-link item-content">
                                 <div class="item-media">
                                     <i class="icon iconfont icon-hongbao1 center-hongbao1"></i>
                                 </div>
                                 <div class="item-inner">
-                                    <div class="item-title">我的红包</div>
+                                    <div class="item-title">我的福利</div>
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a href="/center/contacts" class="item-link item-content">
+                            <a href="./center/contacts.html" class="item-link item-content">
                                 <div class="item-media">
-                                    <i class="icon iconfont icon-renmai center-renmai"></i>
+                                    <i class="icon iconfont icon-paiming center-renmai"></i>
                                 </div>
                                 <div class="item-inner">
-                                    <div class="item-title">我的人脉</div>
+                                    <div class="item-title">福利排名</div>
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a href="/center/recommender" class="item-link item-content">
+                            <a href="./center/contacts.html" class="item-link item-content">
                                 <div class="item-media">
-                                    <i class="icon iconfont icon-tuijianren center-tuijianren"></i>
+                                    <i class="icon iconfont icon-fenxiang1 center-tuijianren"></i>
                                 </div>
                                 <div class="item-inner">
-                                    <div class="item-title">我的推荐人</div>
+                                    <div class="item-title">我的分享</div>
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a href="/center/extension" class="item-link item-content">
+                            <a href="./center/extension.html" class="item-link item-content">
                                 <div class="item-media">
-                                    <i class="icon iconfont icon-zhinengtuiguang center-zhinengtuiguang"></i>
+                                    <i class="icon iconfont icon-fenxiang center-zhinengtuiguang"></i>
                                 </div>
                                 <div class="item-inner">
-                                    <div class="item-title">我的推广</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/center/security" class="item-link item-content">
-                                <div class="item-media">
-                                    <i class="icon iconfont icon-anquan center-anquan"></i>
-                                </div>
-                                <div class="item-inner">
-                                    <div class="item-title">安全中心</div>
+                                    <div class="item-title">我要分享</div>
                                 </div>
                             </a>
                         </li>
                         <!--<li>-->
-                            <!--<a href="/center/recommender-bind" class="item-link item-content">-->
+                            <!--<a href="/center/security" class="item-link item-content">-->
                                 <!--<div class="item-media">-->
-                                    <!--<i class="icon iconfont icon-peizhi center-peizhi success"></i>-->
+                                    <!--<i class="icon iconfont icon-anquan center-anquan"></i>-->
                                 <!--</div>-->
                                 <!--<div class="item-inner">-->
-                                    <!--<div class="item-title">个人设置</div>-->
+                                    <!--<div class="item-title">享玩就玩</div>-->
                                 <!--</div>-->
                             <!--</a>-->
                         <!--</li>-->
