@@ -129,7 +129,7 @@
     background-size: 100% 100%; } }
 
 .center-header {
-  min-height: 4.75rem;
+  min-height: 5.25rem;
   display: flex;
   align-items: center; }
 
@@ -147,30 +147,47 @@
 
 .center-info {
   flex: 0 0 75%;
-  font-size: 12px;
-  color: #fff; }
-  .center-info .center-info-one {
+  display: flex;
+  flex-flow: row nowrap;
+  color: #fff;
+  justify-content: space-between;
+  min-height: 3.25rem; }
+  .center-info .center-info-left, .center-info .center-info-right {
     display: flex;
-    justify-content: space-between;
-    padding-right: 1.4rem;
-    margin-bottom: 0.5rem; }
-  .center-info .center-info-two {
-    display: flex;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    font-size: 12px; }
+  .center-info .center-info-left {
+    justify-content: space-between; }
+  .center-info .go-game-recharge {
+    display: block;
+    font-size: 12px;
+    height: 1rem;
+    line-height: 0.8rem;
+    border-radius: 0.5rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.2); }
+  .center-info .center-info-name {
+    font-size: 14px; }
+  .center-info .center-info-right {
+    justify-content: flex-start;
+    align-items: flex-end;
     padding-right: 1.4rem; }
-    .center-info .center-info-two a {
-      color: #fff;
-      text-decoration: underline; }
-  .center-info .center-bind-info {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center; }
-    .center-info .center-bind-info img {
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      border: 1px solid #fff;
-      margin-right: 0.3rem; }
+    .center-info .center-info-right .center-bind-info {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+      .center-info .center-info-right .center-bind-info img {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        margin-right: 0.3rem; }
+  .center-info .center-info-uid {
+    margin-bottom: 0.75rem; }
+  .center-info a {
+    color: #fff; }
+  .center-info .center-14 {
+    color: #ff6600; }
 
 .center-red-box {
   display: flex;
