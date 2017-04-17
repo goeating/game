@@ -180,16 +180,36 @@ $baiscRem:20px;
     padding-right: rem(28px);
     margin-bottom: rem(10px);
   }
+  .center-info-two{
+    display: flex;
+    justify-content: space-between;
+    padding-right: rem(28px);
+    a{
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+  .center-bind-info{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    img{
+      width: rem(20px);
+      height: rem(20px);
+      border-radius: 50%;
+      border: 1px solid #fff;
+      margin-right: rem(6px);
+    }
+  }
 }
 
 .center-red-box{
   display: flex;
   align-items: center;
   min-height: rem(60px);
-  background: rgba(#fff,.4);
+  background: rgba(#000,.2);
   .center-red{
-    flex: 0 0 25%;
-    border-right: 1px solid #fff;
+    flex: 0 1 25%;
     p{
       margin: 0;
       font-size: 12px;
@@ -197,30 +217,15 @@ $baiscRem:20px;
       text-align: center;
     }
   }
+  .center-line{
+    width: rem(1px);
+    height: rem(36px);
+    background: linear-gradient(to bottom, rgba(#fff,0), rgba(#fff,.7), rgba(#fff,0));
+  }
   .center-red:last-child{
     border-right: none;
   }
 }
-//.center-task{
-//  background: #fff;
-//  padding: 20px;
-//  display: flex;
-//  align-items: center;
-//  .center-tasks{
-//    p{
-//      margin: 0;
-//      font-size: 12px;
-//      span{
-//        margin-left: rem(20px);
-//      }
-//    }
-//  }
-//  .center-task-red{
-//    display: flex;
-//    justify-content: flex-end;
-//    padding-right: rem(5px);
-//  }
-//}
 .center-task{
   background: #fff;
   padding-bottom: rem(10px);
@@ -270,22 +275,15 @@ $baiscRem:20px;
 .center-hongbao1{
   color: #df3d3e;
 }
-.center-renmai{
-  color: #32a0fe;
-}
-.center-tuijianren{
-  color: #43cd6e;
-}
-.center-zhinengtuiguang{
+.center-paiming{
   color: #fed532;
 }
-.center-anquan{
+.center-fenxiang1{
   color: #43cd6e;
 }
-//.center-peizhi{
-//  color:#48ed82;
-//}
-
+.center-fenxiang{
+  color: #85d0e7;
+}
 .register-icon{
   color: #d2d2d2;
   font-size: 20px;

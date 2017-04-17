@@ -154,20 +154,40 @@
     justify-content: space-between;
     padding-right: 1.4rem;
     margin-bottom: 0.5rem; }
+  .center-info .center-info-two {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1.4rem; }
+    .center-info .center-info-two a {
+      color: #fff;
+      text-decoration: underline; }
+  .center-info .center-bind-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+    .center-info .center-bind-info img {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      margin-right: 0.3rem; }
 
 .center-red-box {
   display: flex;
   align-items: center;
   min-height: 3rem;
-  background: rgba(255, 255, 255, 0.4); }
+  background: rgba(0, 0, 0, 0.2); }
   .center-red-box .center-red {
-    flex: 0 0 25%;
-    border-right: 1px solid #fff; }
+    flex: 0 1 25%; }
     .center-red-box .center-red p {
       margin: 0;
       font-size: 12px;
       color: #efefef;
       text-align: center; }
+  .center-red-box .center-line {
+    width: 0.05rem;
+    height: 1.8rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0)); }
   .center-red-box .center-red:last-child {
     border-right: none; }
 
@@ -212,17 +232,14 @@
 .center-hongbao1 {
   color: #df3d3e; }
 
-.center-renmai {
-  color: #32a0fe; }
-
-.center-tuijianren {
-  color: #43cd6e; }
-
-.center-zhinengtuiguang {
+.center-paiming {
   color: #fed532; }
 
-.center-anquan {
+.center-fenxiang1 {
   color: #43cd6e; }
+
+.center-fenxiang {
+  color: #85d0e7; }
 
 .register-icon {
   color: #d2d2d2;
