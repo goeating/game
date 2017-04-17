@@ -186,8 +186,12 @@
     margin-bottom: 0.75rem; }
   .center-info a {
     color: #fff; }
-  .center-info .center-14 {
-    color: #ff6600; }
+  .center-info .center-diamond {
+    color: #5bc0de;
+    margin-right: 3px; }
+  .center-info .center-chongzhi {
+    margin-left: 5px;
+    font-size: 12px; }
 
 .center-red-box {
   display: flex;
