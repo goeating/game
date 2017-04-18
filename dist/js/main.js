@@ -45,8 +45,6 @@ $(function () {
         var that = this;
         oFReader.onload = function (oFREvent) {
             // ajax上传
-            // var formdata = new FormData;
-            // $.post();
             that.img.attr('src', oFREvent.target.result);
         };
         this.file.on('change', function () {
@@ -59,6 +57,7 @@ $(function () {
                 return;
             }
             else {
+            	$.showPreloader('上传中...');
                 oFReader.readAsDataURL(oFile);
                 var data = new FormData();
                 data.append("file", oFile);
@@ -69,6 +68,7 @@ $(function () {
                     contentType: false,
                     data: data,
                     success: function (data) {
+                		$.hidePreloader();
                         if (data) {
                             $('#prompt-id').hide();
                             $.toast("头像上传成功！", 1000);
@@ -147,6 +147,7 @@ $(function () {
             that.imgBox.show();
         };
         this.file.on('change', function () {
+        	oFReader.readAsDataURL(oFile);
             if (this.files.length === 0) {
                 return;
             }
@@ -156,6 +157,7 @@ $(function () {
                 return;
             }
             else {
+            	$.showPreloader('上传中...');
                 oFReader.readAsDataURL(oFile);
                 // 身份证上传ajax
                 var data = new FormData();
@@ -167,6 +169,7 @@ $(function () {
                     contentType: false,
                     data: data,
                     success: function (data) {
+                    	$.hidePreloader();
                         if (data) {
                             $('#prompt-id').hide();
                             $.toast("身份证上传成功！", 1000);
