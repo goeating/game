@@ -13,6 +13,24 @@
   margin-top: 1rem;
   margin-bottom: 0; }
 
+.margin-0 {
+  margin: 0; }
+
+.padding-0 {
+  padding: 0; }
+
+.font-gold {
+  color: #f2c056; }
+
+.font-silver {
+  color: #e9e9d8; }
+
+.font-copper {
+  color: #ba6e40; }
+
+.font-14 {
+  font-size: 14px; }
+
 #none {
   display: none; }
 
