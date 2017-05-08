@@ -57,7 +57,7 @@ $(function () {
                 return;
             }
             else {
-            	$.showPreloader('上传中...');
+                $.showPreloader('上传中...');
                 oFReader.readAsDataURL(oFile);
                 var data = new FormData();
                 data.append("file", oFile);
@@ -68,13 +68,13 @@ $(function () {
                     contentType: false,
                     data: data,
                     success: function (data) {
-                		$.hidePreloader();
+                        $.hidePreloader();
                         if (data) {
                             $('#prompt-id').hide();
                             $.toast("头像上传成功！", 1000);
                         } else {
                             $('#prompt-id').show();
-                            $.toast("头像上传失败！",1000);
+                            $.toast("头像上传失败！", 1000);
                         }
                     }
                 });
@@ -89,13 +89,13 @@ $(function () {
             $.ajax({
                 url: '/Home/PersonalInfo_Birthday',
                 type: 'post',
-                data: { 'birthday': displayvalue },
+                data: {'birthday': displayvalue},
                 success: function (data) {
                     if (data) {
                         $.toast("生日修改成功！", 1000);
                     }
                     else {
-                        $.toast("生日修改失败！",1000);
+                        $.toast("生日修改失败！", 1000);
                     }
                 }
             })
@@ -118,13 +118,13 @@ $(function () {
             $.ajax({
                 url: '/Home/PersonalInfo_Sex',
                 type: 'post',
-                data: { 'sex': $("#info-sex").val() },
+                data: {'sex': $("#info-sex").val()},
                 success: function (data) {
                     if (data) {
                         $.toast("性别修改成功！", 1000);
                     }
                     else {
-                        $.toast("性别修改失败！",1000);
+                        $.toast("性别修改失败！", 1000);
                     }
                 }
             })
@@ -147,7 +147,7 @@ $(function () {
             that.imgBox.show();
         };
         this.file.on('change', function () {
-        	oFReader.readAsDataURL(oFile);
+            oFReader.readAsDataURL(oFile);
             if (this.files.length === 0) {
                 return;
             }
@@ -157,7 +157,7 @@ $(function () {
                 return;
             }
             else {
-            	$.showPreloader('上传中...');
+                $.showPreloader('上传中...');
                 oFReader.readAsDataURL(oFile);
                 // 身份证上传ajax
                 var data = new FormData();
@@ -169,7 +169,7 @@ $(function () {
                     contentType: false,
                     data: data,
                     success: function (data) {
-                    	$.hidePreloader();
+                        $.hidePreloader();
                         if (data) {
                             $('#prompt-id').hide();
                             $.toast("身份证上传成功！", 1000);
@@ -188,12 +188,12 @@ $(function () {
     // 修改身份证号码
     $('#security_id_submit').on('click', function () {
         var Reg = /\d{17}[\d|x]|\d{15}/;
-        
+
         if ($('#ID').val() == '' || !Reg.test($('#ID').val()) || $('#name').val() == '' || $('#name').val().length < 2) {
             $('#id-prompt').show();
-            
+
         } else {
-            
+
             $('#id-prompt').hide();
             $.ajax({
                 url: '/Account/Security_Id',
@@ -209,7 +209,7 @@ $(function () {
                         location.href = "/Account/Security";
                     } else {
                         $('#prompt-id').show();
-                        $.toast("身份证上传失败！",1000);
+                        $.toast("身份证上传失败！", 1000);
                     }
                 }
             });
@@ -235,16 +235,12 @@ $(function () {
                         location.href = "/Account/Security";
                     }
                     else {
-                        $.toast("绑定失败！",1000);
+                        $.toast("绑定失败！", 1000);
                     }
                 }
             });
         }
     });
-
-
-
-
 
 
     //商品支付按钮sellProduct
@@ -260,8 +256,9 @@ $(function () {
                     $.toast("支付成功", 1000);
                 }
                 else {
-                    $.toast("支付失败！",1000);
-                };
+                    $.toast("支付失败！", 1000);
+                }
+                ;
             }
         });
     });

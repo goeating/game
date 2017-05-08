@@ -48,12 +48,13 @@
                     <div class="col-33 recharge">
                         <label>
                             <i class="iconfont icon-zhekou game-icon"></i>
-                            <input type="radio" name="card" value="20" checked="checked"  class="game-radio"/>
+                            <input type="radio" name="card" value="20" checked="checked" class="game-radio"/>
                             <div class="radio-text">
                                 <p class="game-name">10张房卡</p>
                                 <p class="game-pice">20元</p>
                                 <p class="o-pice">
-                                    原价：<del>30元</del>
+                                    原价：
+                                    <del>30元</del>
                                 </p>
                                 <i class="iconfont icon-iconfontgou gou-icon"></i>
                             </div>
@@ -62,12 +63,13 @@
                     <div class="col-33 recharge">
                         <label>
                             <i class="iconfont icon-zhekou game-icon"></i>
-                            <input type="radio" name="card" value="40"  class="game-radio"/>
+                            <input type="radio" name="card" value="40" class="game-radio"/>
                             <div class="radio-text">
                                 <p class="game-name">10张房卡</p>
                                 <p class="game-pice">40元</p>
                                 <p class="o-pice">
-                                    原价：<del>30元</del>
+                                    原价：
+                                    <del>30元</del>
                                 </p>
                                 <i class="iconfont icon-iconfontgou gou-icon"></i>
                             </div>
@@ -81,11 +83,23 @@
                 </p>
                 <div class="content-block">
                     <p>
-                        <a href="#" class="button button-big button-fill button-success">立即支付</a href="#">
+                        <a href="#" class="button button-big button-fill button-success open-popup"
+                           data-popup=".popup-about">立即支付</a>
                     </p>
                 </div>
                 <!--充值end-->
             </div>
+        </div>
+    </div>
+    <div class="popup popup-about">
+        <header class="bar bar-nav">
+            <a class="button button-link pull-right close-popup">
+                关闭
+            </a>
+            <h1 class="title">订单详情</h1>
+        </header>
+        <div class="content-block">
+            <p></p>
         </div>
     </div>
 </div>
