@@ -719,11 +719,15 @@
 .welfare-top .welfare-sex {
   line-height: 0.6rem;
   font-size: 12px; }
+  .welfare-top .welfare-sex .welfare-grade {
+    display: inline-block;
+    min-width: 2.4rem; }
   .welfare-top .welfare-sex .sex {
     display: inline-block;
     vertical-align: top;
     width: 0.6rem;
     height: 0.6rem;
+    margin-left: 0.25rem;
     background-repeat: no-repeat;
     background-size: 0.6rem 0.6rem; }
   .welfare-top .welfare-sex .man {
