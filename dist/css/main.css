@@ -702,3 +702,88 @@
 .bind-success img {
   display: block;
   width: 100%; }
+
+.welfare-top .item-media {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.welfare-top img {
+  width: 2.25rem;
+  height: 2.25rem; }
+
+.welfare-top .welfare-title {
+  margin-bottom: 0.6rem;
+  line-height: 0.7rem;
+  font-size: 14px; }
+
+.welfare-top .welfare-sex {
+  line-height: 0.6rem;
+  font-size: 12px; }
+  .welfare-top .welfare-sex .sex {
+    display: inline-block;
+    vertical-align: top;
+    width: 0.6rem;
+    height: 0.6rem;
+    background-repeat: no-repeat;
+    background-size: 0.6rem 0.6rem; }
+  .welfare-top .welfare-sex .man {
+    background-image: url("../../dist/img/2x/man@2x.png"); }
+    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+      .welfare-top .welfare-sex .man {
+        background-image: url("../../dist/img/3x/man@3x.png"); } }
+  .welfare-top .welfare-sex .woman {
+    background-image: url("../../dist/img/2x/woman@2x.png"); }
+    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+      .welfare-top .welfare-sex .woman {
+        background-image: url("../../dist/img/3x/woman@3x.png"); } }
+  .welfare-top .welfare-sex .red {
+    display: inline-block;
+    margin-left: 15px; }
+
+.welfare-top .ranking {
+  height: 1.5rem;
+  max-height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 30px; }
+
+.welfare-top .orange {
+  color: #f48623; }
+
+.welfare-top .champion {
+  width: 1.5rem;
+  height: 1.55rem;
+  max-height: 1.55rem;
+  line-height: 1.55rem;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 1.5rem 1.55rem;
+  font-size: 34px;
+  color: #b4b4b4; }
+
+.welfare-top .one {
+  background-image: url("../../dist/img/2x/1@2x.png"); }
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    .welfare-top .one {
+      background-image: url("../../dist/img/3x/1@3x.png"); } }
+
+.welfare-top .two {
+  background-image: url("../../dist/img/2x/2@2x.png"); }
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    .welfare-top .two {
+      background-image: url("../../dist/img/3x/2@3x.png"); } }
+
+.welfare-top .three {
+  background-image: url("../../dist/img/2x/3@2x.png"); }
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    .welfare-top .three {
+      background-image: url("../../dist/img/3x/3@3x.png"); } }
+
+.star-title {
+  padding: 0.6rem 0;
+  background: #f48623;
+  color: #fff;
+  text-align: center; }
+  .star-title h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400; }

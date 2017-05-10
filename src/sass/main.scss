@@ -62,7 +62,6 @@ $baiscRem: 20px;
 .font-14 {
   font-size: 14px;
 }
-
 #none {
   display: none;
 }
@@ -721,5 +720,82 @@ $baiscRem: 20px;
   img{
     display: block;
     width: 100%;
+  }
+}
+.welfare-top{
+  .item-media{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  img{
+    width: rem(45px);
+    height: rem(45px);
+  }
+  .welfare-title{
+    margin-bottom: rem(12px);
+    line-height: rem(14px);
+    font-size: 14px;
+  }
+  .welfare-sex{
+    line-height: rem(12px);
+    font-size: 12px;
+    .sex{
+      display: inline-block;
+      vertical-align: top;
+      width: rem(12px);
+      height: rem(12px);
+      background-repeat: no-repeat;
+      background-size: rem(12px) rem(12px);
+    }
+    .man{
+      @include bg-image('man');
+    }
+    .woman{
+      @include bg-image('woman');
+    }
+    .red{
+      display: inline-block;
+      margin-left: 15px;
+    }
+  }
+  .ranking {
+    height: rem(30px);
+    max-height: rem(30px);
+    line-height: rem(30px);
+    font-size: 30px;
+  }
+  .orange{
+    color: #f48623;
+  }
+  .champion{
+    width: rem(30px);
+    height: rem(31px);
+    max-height: rem(31px);
+    line-height: rem(31px);
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: rem(30px) rem(31px);
+    font-size: 34px;
+    color: #b4b4b4;
+  }
+  .one{
+    @include bg-image('1');
+  }
+  .two{
+    @include bg-image('2');
+  }
+  .three{
+    @include bg-image('3');
+  }
+}
+.star-title{
+  padding: rem(12px) 0;
+  background: #f48623;
+  color: #fff;
+  text-align: center;
+  h1{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
   }
 }
