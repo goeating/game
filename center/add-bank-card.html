@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>红包提现</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="../dist/font/iconfont.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav bar-light">
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+            </a>
+            <h1 class='title'>添加银行卡</h1>
+        </header>
+        <div class="content native-scroll">
+            <div class="content-inner">
+
+                <div class="content-block-title">为了保障账户安全，请添加您本人的银行卡</div>
+
+                <div class="list-block top-10">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">开户行</div>
+                                    <div class="item-input">
+                                        <select>
+                                            <option>中国建设银行</option>
+                                            <option>中国工商银行</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">开户分行名称</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入分行名称">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="list-block top-10">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">卡号</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入银行卡号">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">开户名</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入开户人姓名">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content-block give-id-btn">
+                    <p>
+                        <a href="javascript:;" class="button button-big button-fill  button-warning disabled" id="add_card">确定</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="../dist/js/main.js"></script>
+<script>
+    $(document).on('click', '#add_card', function () {
+        $.alert('成功添加银行卡');
+    });
+</script>
+</body>
+</html>

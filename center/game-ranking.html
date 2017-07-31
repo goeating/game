@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的红包</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="../dist/font/iconfont.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
+</head>
+<body>
+<div class="page-group">
+
+    <div class="page page-current" id="game_ranking">
+        <header class="bar bar-nav bar-light">
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+            </a>
+            <h1 class='title'>福利排名</h1>
+            <a class="button button-link button-nav pull-right" href="./champion.html">
+                冠军
+            </a>
+        </header>
+        <div class="content native-scroll infinite-scroll">
+            <div class="content-inner">
+
+                <div class="buttons-tab">
+                    <a href="#day" class="tab-link active button">日榜</a>
+                    <a href="#month" class="tab-link button">周榜</a>
+                    <a href="#year" class="tab-link button">月榜</a>
+                </div>
+                <div class="tabs">
+                    <div id="day" class="tab active infinite-scroll">
+                        <div class="list-block margin-0">
+                            <ul class="welfare-top">
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <img class="img-circle" data-bind="attr: {src: my.img}">
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="welfare-title" data-bind="text: my.name"></div>
+                                                <div class="welfare-sex">
+                                                    <div class="welfare-grade" data-bind="text: my.grade"></div>
+                                                    <div class="sex"
+                                                         data-bind="css: {man : my.gender===0,woman: my.gender===1}"></div>
+                                                    <div class="red">
+                                                        局数：<span data-bind="text: my.num"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="ranking orange"
+                                                 data-bind="text: my.ranking"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="game-title">
+                            <h1>排行榜</h1>
+                        </div>
+
+                        <div class="list-block margin-0">
+                            <ul class="welfare-top game-wrapper" data-bind="foreach: people">
+                                <li>
+                                    <div class="item-content">
+
+                                        <div class="item-media">
+                                            <img class="img-circle" data-bind="attr: {src: img}">
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="welfare-title" data-bind="text: name"></div>
+                                                <div class="welfare-sex">
+                                                    <div class="welfare-grade" data-bind="text: grade"></div>
+                                                    <div class="sex"
+                                                         data-bind="css: {man : gender===0,woman: gender===1}"></div>
+                                                    <div class="red">
+                                                        局数：<span data-bind="text: num"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ranking-text">并列</div>
+                                            <div class="champion"
+                                                 data-bind="css: {one: $index()===0,two: $index()===1,three: $index()===2}, text: $index()>2?$index()+1:''">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 加载提示符 -->
+                        <div class="infinite-scroll-preloader">
+                            <div class="preloader"></div>
+                        </div>
+
+                    </div>
+                    <div id="month" class="tab">
+                        <div class="content-block">
+                            <p>This is tab 2 content</p>
+                        </div>
+                    </div>
+                    <div id="year" class="tab">
+                        <div class="content-block">
+                            <p>This is tab 3 content</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--&lt;!&ndash;&lt;!&ndash; 加载提示符 &ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="infinite-scroll-preloader">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="preloader"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='../dist/js/knockout-3.4.2.js' charset='utf-8'></script>
+<script src="../dist/js/main.js"></script>
+<script>
+    var data = {
+        my: {
+            name: 'Bert',
+            grade: '五星代理',
+            gender: 0,
+            num: 20,
+            ranking: 100,
+            img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+        },
+        people: [
+            {
+                name: 'Bert',
+                grade: '五星代理',
+                gender: 0,
+                num: 20,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '二',
+                grade: '五星代理',
+                gender: 1,
+                num: 10,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '三',
+                grade: '五星代理',
+                gender: 1,
+                num: 220,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            },
+            {
+                name: '四',
+                grade: '五星代理',
+                gender: 0,
+                num: 210,
+                img: 'http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg'
+            }
+        ]
+    };
+    ko.applyBindings(data);
+    $(document).on("pageInit", "#game_ranking", function(e, id, page) {
+        console.log($(page));
+        var loading = false;
+        // 每次加载添加多少条目
+        var itemsPerLoad = 10;
+        // 最多可加载的条目
+        var maxItems = 12;
+        var lastIndex = $('.game-wrapper li')[0].length;
+        function addItems(number, lastIndex) {
+
+        }
+        $(page).on('infinite', function() {
+            // 如果正在加载，则退出
+            if (loading) return;
+            // 设置flag
+            loading = true;
+            var tabIndex = 0;
+            if($(this).find('.infinite-scroll.active').attr('id') == "month"){
+                tabIndex = 0;
+            }
+            if($(this).find('.infinite-scroll.active').attr('id') == "year"){
+                tabIndex = 1;
+            }
+            lastIndex = $('.game-wrapper').eq(tabIndex).find('li').length;
+            // 重置加载flag
+            loading = false;
+            if (lastIndex >= maxItems) {
+                // 加载完毕，则注销无限加载事件，以防不必要的加载
+                //$.detachInfiniteScroll($('.infinite-scroll').eq(tabIndex));
+                // 删除加载提示符
+                $('.infinite-scroll-preloader').eq(tabIndex).hide();
+                return;
+            }
+            addItems(itemsPerLoad,lastIndex);
+            // 更新最后加载的序号
+            lastIndex =  $('.game-wrapper').eq(tabIndex).find('li').length;
+            $.refreshScroller();
+        });
+    });
+</script>
+</body>
+</html>

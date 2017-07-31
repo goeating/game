@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>申请兑换</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="../dist/font/iconfont.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav bar-light">
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+            </a>
+            <h1 class='title'>申请兑换</h1>
+        </header>
+        <div class="content native-scroll">
+            <div class="content-inner">
+
+                <div class="list-block bank-card">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">银行卡</div>
+                                    <div class="item-input">
+                                        <select>
+                                            <option>招商银行（1818）</option>
+                                            <option>建设银行（4241）</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card exchange-card">
+                    <div class="card-content">
+                        <div class="card-content-inner padding-0">
+                            <div class="exchange-wrapper">
+                                <div class="exchange-time">
+                                    预计到账时间
+                                    <span class="time">24小时内</span>
+                                </div>
+                                <div class="exchange-balance">
+                                    红包余额
+                                    <span class="balance">188888.00</span>
+                                    元
+                                </div>
+                                <div class="money">
+                                    <div>提现金额</div>
+                                    <div>
+                                        <input class="money-input" type="text" placeholder="0">元
+                                    </div>
+                                </div>
+                                <div class="exchange-explain">提现说明: 提现必须50元起，均按50的倍数提取，否则无法通过审核</div>
+                                <div class="content-block give-id-btn">
+                                    <p>
+                                        <a href="javascript:;" class="button button-big button-fill button-warning"
+                                           id="submit">提交申请</a>
+                                        <!--disabled-->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="../dist/js/main.js"></script>
+<script>
+    $('#submit').on('click', function () {
+        //提交中
+        $.showPreloader('正在提交，请稍后');
+//        提交成功=>隐藏
+//        $.hidePreloader();
+
+        //兑换失败
+//        $.modal({
+//            title: '<span class="modal-title">兑换申请失败</span>',
+//            text: '<span class="modal-text">申请不符规定，请重新提交</span>',
+//            buttons: [
+//                {
+//                    text: '<span class="confirm">确定</span>'
+//                }
+//            ]
+//        })
+
+        //兑换成功
+//        $.modal({
+//            title: '<span class="modal-title">兑换申请成功</span>',
+//            text: '<span class="modal-text">下周一进行统一处理</span>',
+//            buttons: [
+//                {
+//                    text: '<span class="confirm">确定</span>'
+//                }
+//            ]
+//        })
+    });
+</script>
+</body>
+</html>

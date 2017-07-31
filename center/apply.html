@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>注册</title>
+    <title>赠卡申请</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,30 +11,23 @@
 
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-    <link rel="stylesheet" href="./dist/font/iconfont.css">
-    <link rel="stylesheet" href="./dist/css/main.css">
-    <style>
-        .warning{
-            margin-top: 0.5rem;
-            padding: 0.5rem 0;
-            line-height: 1.5;
-            white-space: normal;
-            color: #ea4a36;
-            font-size: 12px;
-        }
-    </style>
+    <link rel="stylesheet" href="../dist/font/iconfont.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
 </head>
 <body>
 <div class="page-group">
     <div class="page page-current">
         <header class="bar bar-nav bar-light">
-            <h1 class="title">注册</h1>
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+            </a>
+            <h1 class='title'>提交申请</h1>
         </header>
         <div class="content native-scroll">
             <div class="content-inner">
-                <div class="content-block-title register-title">请先通过绑定手机号码进行账号注册</div>
+                <div class="content-block-title register-title">请先通过绑定的手机号码获取验证码</div>
                 <!--注册start-->
-                <div class="list-block margin-0">
+                <div class="list-block">
                     <ul>
                         <!-- Text inputs -->
                         <li>
@@ -43,11 +36,11 @@
                                     <i class="icon iconfont icon-shouji register-icon"></i>
                                 </div>
                                 <div class="item-inner">
-                                    <div class="item-input">
-                                        <input type="text" placeholder="手机号" id="phone" maxlength="11" minlength="">
-                                    </div>
+                                    <div class="item-title" id="apply_phone">18812312388</div>
                                     <p class="register-code">
-                                        <button type="button" class="button button-fill button-dark" id="code-btn">获取验证码</button>
+                                        <button type="button" class="button button-fill button-dark" id="apply_btn">
+                                            获取验证码
+                                        </button>
                                     </p>
                                 </div>
                             </div>
@@ -59,7 +52,7 @@
                                 </div>
                                 <div class="item-inner">
                                     <div class="item-input">
-                                        <input type="email" placeholder="验证码">
+                                        <input type="number" placeholder="验证码">
                                     </div>
                                 </div>
                             </div>
@@ -67,11 +60,10 @@
 
                     </ul>
                 </div>
-                <div class="content-block-title warning">请务必绑定与游戏账号相同的手机号码，否则数据无法同步！</div>
                 <div class="content-block">
                     <div class="row">
                         <div class="col-100">
-                            <a href="#" class="button button-big button-fill button-success">注册</a>
+                            <a href="#" class="button button-big button-fill button-success disabled">申请</a>
                         </div>
                     </div>
                 </div>
@@ -82,8 +74,34 @@
 </div>
 
 <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
 <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
-<script src="./dist/js/main.js"></script>
+<script src="../dist/js/main.js"></script>
+<script>
+    $('#apply_btn').on('click', function () {
+        var index = 60;
+        var timeout = function () {
+            if (index == 0) {
+                clearTimeout();
+                $('#apply_btn').removeClass('disabled').addClass('button-dark').prop('disabled', false).text("获取验证码");
+            } else {
+                setTimeout(function () {
+                    index--;
+                    $('#apply_btn').text(index + "秒后重试");
+                    timeout();
+                }, 1000)
+            }
+        };
+
+        $(this).removeClass('button-dark').addClass('disabled').prop('disabled', true);
+        timeout();
+        //发送手机号
+//        $.post('', {
+//            // $('#apply_phone').val()
+//        }, function (res) {
+//
+//        });
+    });
+</script>
 </body>
 </html>
